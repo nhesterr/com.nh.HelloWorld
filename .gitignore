@@ -1,1 +1,4 @@
 bin/
+/nbproject/private/
+/build/
+/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar
