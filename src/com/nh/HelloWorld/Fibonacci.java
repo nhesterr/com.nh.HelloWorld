@@ -31,7 +31,7 @@ public class Fibonacci {
 	    }
 	}
 
-	public WyświetlalnyTreeMapIntInt<Integer, Integer> ciąg = new WyświetlalnyTreeMapIntInt<>();
+	public WyświetlalnyTreeMapIntInt<Integer, Long> ciąg = new WyświetlalnyTreeMapIntInt<>();
         
 	public Fibonacci() {
 		// TODO Auto-generated constructor stub
@@ -46,16 +46,16 @@ public class Fibonacci {
 	}
 	
 	public Fibonacci generujCiągFibonacciego(int długość){
-            WyświetlalnyTreeMapIntInt<Integer, Integer> ciągRoboczy = new WyświetlalnyTreeMapIntInt<>();
+            WyświetlalnyTreeMapIntInt<Integer, Long> ciągRoboczy = new WyświetlalnyTreeMapIntInt<>();
             if(długość>1) {
-                ciągRoboczy.put(0, 0);
-                ciągRoboczy.put(1, 1);
+                ciągRoboczy.put(0, (long)0);
+                ciągRoboczy.put(1, (long)1);
                 for(int i = 2; i < długość; i++) {
                     ciągRoboczy.put(i, ciągRoboczy.get(i-1)+ciągRoboczy.get(i-2));
                 }
             }
             else if(długość==1) {
-                ciągRoboczy.put(0, 0);
+                ciągRoboczy.put(0, (long)0);
             }
             System.out.println("Wygenerowano ciąg o długości: "+ciągRoboczy.size());
             this.ciąg = ciągRoboczy;
@@ -71,6 +71,15 @@ public class Fibonacci {
 		}
 		return ciągRoboczy;
 	}
+        
+        public WyświetlalnyTreeMapIntFloat<Integer, Double> dodajPrzecinek(){
+            WyświetlalnyTreeMapIntFloat<Integer, Double> ciągRoboczy = new WyświetlalnyTreeMapIntFloat<>();
+            for(int i = 0; i < this.ciąg.size(); i++) {
+                ciągRoboczy.put(i, this.ciąg.get(i).doubleValue());
+                //System.out.println("Klucz: "+i+", wartość: "+this.ciąg.get(i));
+            }
+            return ciągRoboczy;
+        }
         
         @Override
         public String toString() {
